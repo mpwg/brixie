@@ -11,10 +11,6 @@ Brixie is a mobile application for accessing Rebrickable, built with native iOS 
 # Navigate to Android project
 cd android/
 
-# Fix AGP/Gradle version compatibility (REQUIRED FIRST STEP)
-# The project has version mismatches that must be resolved before building
-# Note: This requires network access to download Android Gradle Plugin
-
 # Check current versions
 cat android/gradle/libs.versions.toml
 cat android/gradle/wrapper/gradle-wrapper.properties
@@ -174,17 +170,6 @@ xcodebuild test -project ios.xcodeproj -scheme ios -destination 'platform=iOS Si
 - `android/gradle/wrapper/gradle-wrapper.properties` - Gradle version
 - `android/app/build.gradle.kts` - Android app configuration
 - `ios/ios.xcodeproj/project.pbxproj` - iOS project configuration
-
-## Known Issues and Workarounds
-
-### Android Configuration Issues  
-⚠️ **CRITICAL**: The project has AGP/Gradle version compatibility issues that MUST be fixed before building:
-
-1. **Symptom**: Build fails with "Plugin [id: 'com.android.application'] was not found"
-2. **Root cause**: Initial setup uses incompatible Gradle/AGP versions and network access to Google repositories may be limited
-3. **Fix**: Update `android/gradle/libs.versions.toml` to use compatible AGP version and ensure Gradle wrapper uses compatible version
-4. **Network dependency**: Android builds require internet access to download AGP from Google repositories - builds will fail in offline environments
-5. **Workaround**: Ensure network connectivity or use a pre-configured environment with cached dependencies
 
 ### iOS Configuration
 - iOS builds require macOS environment - cannot be tested on Linux
