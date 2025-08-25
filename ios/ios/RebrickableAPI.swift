@@ -126,13 +126,13 @@ class RebrickableAPI: ObservableObject {
             
         } catch let error as RebrickableAPIError {
             lastError = error
+            isLoading = false
             throw error
         } catch {
             let apiError = RebrickableAPIError.networkError(error)
             lastError = apiError
-            throw apiError
-        } finally {
             isLoading = false
+            throw apiError
         }
     }
     
