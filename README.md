@@ -1,8 +1,6 @@
-# template
+# 🧱Brixie
 
-edit me
-
-
+Brixie is an App for accessing [Rebrickable](https://rebrickable.com)
 
 **Website:**
 
