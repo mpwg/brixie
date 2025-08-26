@@ -6,9 +6,10 @@
 //
 
 import Foundation
+internal import Combine
 
 // MARK: - API Errors
-enum RebrickableAPIError: Error, LocalizedError {
+enum RebrickableAPIError: Error, LocalizedError, Equatable {
     case invalidURL
     case noData
     case invalidResponse
@@ -42,6 +43,30 @@ enum RebrickableAPIError: Error, LocalizedError {
             return "Server error (HTTP \(code))"
         case .notConfigured:
             return "API key not configured"
+        }
+    }
+}
+
+extension RebrickableAPIError {
+    public static func == (lhs: RebrickableAPIError, rhs: RebrickableAPIError) -> Bool {
+        switch (lhs, rhs) {
+        case (.invalidURL, .invalidURL),
+             (.noData, .noData),
+             (.invalidResponse, .invalidResponse),
+             (.unauthorized, .unauthorized),
+             (.rateLimited, .rateLimited),
+             (.notConfigured, .notConfigured):
+            return true
+        case let (.decodingError(e1), .decodingError(e2)):
+            return e1.localizedDescription == e2.localizedDescription
+        case let (.networkError(e1), .networkError(e2)):
+            return e1.localizedDescription == e2.localizedDescription
+        case let (.apiError(e1), .apiError(e2)):
+            return e1.localizedDescription == e2.localizedDescription
+        case let (.serverError(c1), .serverError(c2)):
+            return c1 == c2
+        default:
+            return false
         }
     }
 }
@@ -256,3 +281,4 @@ class RebrickableAPI: ObservableObject {
         return try await getSets(query: query)
     }
 }
+

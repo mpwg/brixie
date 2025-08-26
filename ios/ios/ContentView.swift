@@ -35,9 +35,11 @@ struct ContentView: View {
                 }
                 .navigationTitle("Items")
                 .toolbar {
+                    #if os(iOS)
                     ToolbarItem(placement: .navigationBarTrailing) {
                         EditButton()
                     }
+                    #endif
                     ToolbarItem {
                         Button(action: addItem) {
                             Label("Add Item", systemImage: "plus")
@@ -90,6 +92,7 @@ struct ContentView: View {
                 }
                 .navigationTitle("LEGO Sets")
                 .toolbar {
+                    #if os(iOS)
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Featured") {
                             Task {
@@ -97,6 +100,7 @@ struct ContentView: View {
                             }
                         }
                     }
+                    #endif
                 }
                 .task {
                     await loadFeaturedSets()

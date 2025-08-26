@@ -240,11 +240,19 @@ struct RebrickableAPIExampleView: View {
                 Task { await performSearch() }
             }
             .toolbar {
+                #if os(iOS)
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Featured") {
                         Task { await loadFeaturedSets() }
                     }
                 }
+                #else
+                ToolbarItem(placement: .automatic) {
+                    Button("Featured") {
+                        Task { await loadFeaturedSets() }
+                    }
+                }
+                #endif
             }
             .task {
                 await loadFeaturedSets()
