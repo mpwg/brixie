@@ -1,0 +1,9 @@
+eu.mpwg.brixie.shared-pngs-0 /home/runner/work/brixie/brixie/shared/build/generated/res/pngs/release
+eu.mpwg.brixie.shared-resValues-1 /home/runner/work/brixie/brixie/shared/build/generated/res/resValues/release
+eu.mpwg.brixie.shared-mergeReleaseResources-2 /home/runner/work/brixie/brixie/shared/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+eu.mpwg.brixie.shared-mergeReleaseResources-3 /home/runner/work/brixie/brixie/shared/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+eu.mpwg.brixie.shared-release-4 /home/runner/work/brixie/brixie/shared/build/intermediates/merged_res/release/mergeReleaseResources
+eu.mpwg.brixie.shared-androidMain-5 /home/runner/work/brixie/brixie/shared/src/androidMain/res
+eu.mpwg.brixie.shared-androidRelease-6 /home/runner/work/brixie/brixie/shared/src/androidRelease/res
+eu.mpwg.brixie.shared-main-7 /home/runner/work/brixie/brixie/shared/src/main/res
+eu.mpwg.brixie.shared-release-8 /home/runner/work/brixie/brixie/shared/src/release/res

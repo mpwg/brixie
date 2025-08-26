@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.12.1" type="incidents">
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of org.jetbrains.kotlin.android than 2.0.21 is available: 2.2.10">
+        <fix-replace
+            description="Change to 2.2.10"
+            family="Update versions"
+            oldString="2.0.21"
+            replacement="2.2.10"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="3"
+            column="10"
+            startOffset="35"
+            endLine="3"
+            endColumn="18"
+            endOffset="43"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of org.jetbrains.kotlin.multiplatform than 2.0.21 is available: 2.2.10">
+        <fix-replace
+            description="Change to 2.2.10"
+            family="Update versions"
+            oldString="2.0.21"
+            replacement="2.2.10"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="3"
+            column="10"
+            startOffset="35"
+            endLine="3"
+            endColumn="18"
+            endOffset="43"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of org.jetbrains.kotlin.plugin.serialization than 2.0.21 is available: 2.2.10">
+        <fix-replace
+            description="Change to 2.2.10"
+            family="Update versions"
+            oldString="2.0.21"
+            replacement="2.2.10"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="3"
+            column="10"
+            startOffset="35"
+            endLine="3"
+            endColumn="18"
+            endOffset="43"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of io.ktor:ktor-client-android than 3.0.2 is available: 3.2.3">
+        <fix-replace
+            description="Change to 3.2.3"
+            family="Update versions"
+            oldString="3.0.2"
+            replacement="3.2.3"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"
+            startOffset="321"
+            endLine="15"
+            endColumn="15"
+            endOffset="328"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of io.ktor:ktor-client-content-negotiation than 3.0.2 is available: 3.2.3">
+        <fix-replace
+            description="Change to 3.2.3"
+            family="Update versions"
+            oldString="3.0.2"
+            replacement="3.2.3"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"
+            startOffset="321"
+            endLine="15"
+            endColumn="15"
+            endOffset="328"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of io.ktor:ktor-client-core than 3.0.2 is available: 3.2.3">
+        <fix-replace
+            description="Change to 3.2.3"
+            family="Update versions"
+            oldString="3.0.2"
+            replacement="3.2.3"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"
+            startOffset="321"
+            endLine="15"
+            endColumn="15"
+            endOffset="328"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of io.ktor:ktor-client-darwin than 3.0.2 is available: 3.2.3">
+        <fix-replace
+            description="Change to 3.2.3"
+            family="Update versions"
+            oldString="3.0.2"
+            replacement="3.2.3"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"
+            startOffset="321"
+            endLine="15"
+            endColumn="15"
+            endOffset="328"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of io.ktor:ktor-client-logging than 3.0.2 is available: 3.2.3">
+        <fix-replace
+            description="Change to 3.2.3"
+            family="Update versions"
+            oldString="3.0.2"
+            replacement="3.2.3"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"
+            startOffset="321"
+            endLine="15"
+            endColumn="15"
+            endOffset="328"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of io.ktor:ktor-serialization-kotlinx-json than 3.0.2 is available: 3.2.3">
+        <fix-replace
+            description="Change to 3.2.3"
+            family="Update versions"
+            oldString="3.0.2"
+            replacement="3.2.3"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"
+            startOffset="321"
+            endLine="15"
+            endColumn="15"
+            endOffset="328"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of org.jetbrains.kotlinx:kotlinx-serialization-json than 1.7.3 is available: 1.9.0">
+        <fix-replace
+            description="Change to 1.9.0"
+            family="Update versions"
+            oldString="1.7.3"
+            replacement="1.9.0"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="16"
+            column="24"
+            startOffset="352"
+            endLine="16"
+            endColumn="31"
+            endOffset="359"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.9.0 is available: 1.10.2">
+        <fix-replace
+            description="Change to 1.10.2"
+            family="Update versions"
+            oldString="1.9.0"
+            replacement="1.10.2"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="17"
+            column="14"
+            startOffset="373"
+            endLine="17"
+            endColumn="21"
+            endOffset="380"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-core than 1.9.0 is available: 1.10.2">
+        <fix-replace
+            description="Change to 1.10.2"
+            family="Update versions"
+            oldString="1.9.0"
+            replacement="1.10.2"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="17"
+            column="14"
+            startOffset="373"
+            endLine="17"
+            endColumn="21"
+            endOffset="380"/>
+    </incident>
+
+    <incident
+        id="NewerVersionAvailable"
+        severity="warning"
+        message="A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-test than 1.9.0 is available: 1.10.2">
+        <fix-replace
+            description="Change to 1.10.2"
+            family="Update versions"
+            oldString="1.9.0"
+            replacement="1.10.2"
+            priority="0"/>
+        <location
+            file="$HOME/work/brixie/brixie/gradle/libs.versions.toml"
+            line="17"
+            column="14"
+            startOffset="373"
+            endLine="17"
+            endColumn="21"
+            endOffset="380"/>
+    </incident>
+
+</incidents>

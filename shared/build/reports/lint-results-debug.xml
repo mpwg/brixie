@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.12.1">
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of org.jetbrains.kotlin.android than 2.0.21 is available: 2.2.10"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="kotlin = &quot;2.0.21&quot;"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="3"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of org.jetbrains.kotlin.multiplatform than 2.0.21 is available: 2.2.10"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="kotlin = &quot;2.0.21&quot;"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="3"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of org.jetbrains.kotlin.plugin.serialization than 2.0.21 is available: 2.2.10"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="kotlin = &quot;2.0.21&quot;"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="3"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of io.ktor:ktor-client-android than 3.0.2 is available: 3.2.3"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="ktor = &quot;3.0.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of io.ktor:ktor-client-content-negotiation than 3.0.2 is available: 3.2.3"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="ktor = &quot;3.0.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of io.ktor:ktor-client-core than 3.0.2 is available: 3.2.3"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="ktor = &quot;3.0.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of io.ktor:ktor-client-darwin than 3.0.2 is available: 3.2.3"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="ktor = &quot;3.0.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of io.ktor:ktor-client-logging than 3.0.2 is available: 3.2.3"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="ktor = &quot;3.0.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of io.ktor:ktor-serialization-kotlinx-json than 3.0.2 is available: 3.2.3"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="ktor = &quot;3.0.2&quot;"
+        errorLine2="       ~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="15"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of org.jetbrains.kotlinx:kotlinx-serialization-json than 1.7.3 is available: 1.9.0"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="kotlinxSerialization = &quot;1.7.3&quot;"
+        errorLine2="                       ~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="16"
+            column="24"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.9.0 is available: 1.10.2"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="coroutines = &quot;1.9.0&quot;"
+        errorLine2="             ~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="17"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-core than 1.9.0 is available: 1.10.2"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="coroutines = &quot;1.9.0&quot;"
+        errorLine2="             ~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="17"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="NewerVersionAvailable"
+        severity="Warning"
+        message="A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-test than 1.9.0 is available: 1.10.2"
+        category="Correctness"
+        priority="4"
+        summary="Newer Library Versions Available"
+        explanation="This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the `GradleDependency` check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also **much** slower."
+        errorLine1="coroutines = &quot;1.9.0&quot;"
+        errorLine2="             ~~~~~~~">
+        <location
+            file="/home/runner/work/brixie/brixie/gradle/libs.versions.toml"
+            line="17"
+            column="14"/>
+    </issue>
+
+</issues>

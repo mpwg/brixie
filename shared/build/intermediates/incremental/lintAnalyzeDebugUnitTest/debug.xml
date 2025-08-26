@@ -1,0 +1,26 @@
+<variant
+    name="debug"
+    package="eu.mpwg.brixie.shared"
+    minSdkVersion="34"
+    targetSdkVersion="34"
+    debuggable="true"
+    mergedManifest="build/intermediates/merged_manifest/debug/processDebugManifest/AndroidManifest.xml"
+    partialResultsDir="build/intermediates/unit_test_lint_partial_results/debug/lintAnalyzeDebugUnitTest/out"
+    desugaredMethodsFiles="/home/runner/.gradle/caches/9.0.0/transforms/130a82997b27da72de4aebd93365d7ba/transformed/D8BackportedDesugaredMethods.txt">
+  <buildFeatures
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+  </sourceProviders>
+  <testSourceProviders>
+    <sourceProvider
+        manifests="src/androidUnitTest/AndroidManifest.xml"
+        javaDirectories="src/test/java:src/testDebug/java:src/androidUnitTest/kotlin:src/test/kotlin:src/androidUnitTestDebug/kotlin:src/testDebug/kotlin"
+        assetsDirectories="src/test/assets:src/androidUnitTest/assets:src/testDebug/assets:src/androidUnitTestDebug/assets"
+        unitTest="true"/>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <artifact
+      type="UNIT_TEST">
+  </artifact>
+</variant>
