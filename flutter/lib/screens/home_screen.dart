@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../services/rebrickable_api.dart';
 import '../services/rebrickable_exceptions.dart';
 import 'sets_screen.dart';
+import 'parts_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _pages = [
     const HomeTab(),
     const SetsScreen(),
+    const PartsScreen(),
     const SlideshowTab(),
   ];
 
@@ -85,8 +87,8 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.slideshow),
-              title: const Text('About'),
+              leading: const Icon(Icons.category),
+              title: const Text('LEGO Parts'),
               selected: _selectedIndex == 2,
               onTap: () {
                 setState(() {
@@ -95,11 +97,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 Navigator.pop(context);
               },
             ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('About'),
+              selected: _selectedIndex == 3,
+              onTap: () {
+                setState(() {
+                  _selectedIndex = 3;
+                });
+                Navigator.pop(context);
+              },
+            ),
           ],
         ),
       ),
       body: _pages[_selectedIndex],
-      floatingActionButton: _selectedIndex == 1 ? null : FloatingActionButton(
+      floatingActionButton: _selectedIndex == 1 || _selectedIndex == 2 ? null : FloatingActionButton(
         onPressed: () {
           if (_selectedIndex == 0) {
             // Navigate to Sets screen
@@ -153,17 +166,38 @@ class HomeTab extends StatelessWidget {
                     style: TextStyle(fontSize: 16),
                   ),
                   const SizedBox(height: 16),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SetsScreen(),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SetsScreen(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(Icons.extension),
+                          label: const Text('Browse Sets'),
                         ),
-                      );
-                    },
-                    icon: const Icon(Icons.search),
-                    label: const Text('Browse LEGO Sets'),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const PartsScreen(),
+                              ),
+                            );
+                          },
+                          icon: const Icon(Icons.category),
+                          label: const Text('Browse Parts'),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
