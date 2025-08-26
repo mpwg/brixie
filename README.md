@@ -6,19 +6,28 @@ Brixie is an App for accessing [Rebrickable](https://rebrickable.com)
 
 ## Supported Platforms
 
-- **iOS:** Version 26+ (Xcode 26)
-- **Android:** Version 14+ (API Level 34)
+- **Cross-Platform:** Flutter app supporting both iOS and Android
+- **iOS:** Version 26+ (Xcode 26) - Native SwiftUI app (legacy)
+- **Android:** Version 14+ (API Level 34) - Native Kotlin app (legacy)
 
 ## Technology Stack
 
-### iOS
+### Flutter (Primary)
+- **Languages:** Dart
+- **UI Framework:** Flutter/Material Design
+- **Async/Reactive:** Future/Stream
+- **Networking:** HTTP/Dio
+- **Persistence:** SQLite/SharedPreferences
+- **State Management:** BLoC Pattern
+
+### iOS (Legacy)
 - **Languages:** Swift
 - **UI Framework:** SwiftUI
 - **Async/Reactive:** Combine/async-await
 - **Networking:** URLSession
 - **Persistence:** Core Data
 
-### Android
+### Android (Legacy)
 - **Languages:** Kotlin
 - **UI Framework:** Jetpack Compose
 - **Async/Reactive:** Coroutines/Flow
@@ -54,12 +63,18 @@ Brixie is an App for accessing [Rebrickable](https://rebrickable.com)
 
 ### Prerequisites
 
-- **iOS Development:**
+- **Flutter Development (Primary):**
+  - Flutter SDK 3.10.0+
+  - Dart 3.0.0+
+  - Android Studio or VS Code
+  - iOS development requires macOS with Xcode
+
+- **iOS Development (Legacy):**
   - Xcode 26 (current/latest)
   - macOS with latest version
   - Valid Apple Developer account (for device testing)
 
-- **Android Development:**
+- **Android Development (Legacy):**
   - Android Studio (current/latest)
   - Java 17
   - Android SDK with API Level 34+
@@ -67,7 +82,16 @@ Brixie is an App for accessing [Rebrickable](https://rebrickable.com)
 - **API Access:**
   - Rebrickable API key (required for data access)
 
-### iOS Build Steps
+### Flutter Build Steps (Primary)
+
+1. Clone the repository
+2. Navigate to the Flutter project: `cd flutter/`
+3. Install dependencies: `flutter pub get`
+4. Generate code: `dart run build_runner build`
+5. Configure your Rebrickable API key: `export REBRICKABLE_API_KEY="your_key"`
+6. Run the app: `flutter run`
+
+### iOS Build Steps (Legacy)
 
 1. Clone the repository
 2. Open the Xcode workspace/project
@@ -75,7 +99,7 @@ Brixie is an App for accessing [Rebrickable](https://rebrickable.com)
 4. Select your target device or simulator
 5. Build and run (⌘+R)
 
-### Android Build Steps
+### Android Build Steps (Legacy)
 
 1. Clone the repository
 2. Open the project in Android Studio
@@ -86,7 +110,20 @@ Brixie is an App for accessing [Rebrickable](https://rebrickable.com)
 
 ### Running Tests
 
-#### iOS
+#### Flutter (Primary)
+```bash
+cd flutter/
+# Run all tests
+flutter test
+
+# Run tests with coverage
+flutter test --coverage
+
+# Analyze code
+flutter analyze
+```
+
+#### iOS (Legacy)
 ```bash
 # Run unit tests
 xcodebuild test -workspace Brixie.xcworkspace -scheme Brixie -destination 'platform=iOS Simulator,name=iPhone 15'
@@ -95,7 +132,7 @@ xcodebuild test -workspace Brixie.xcworkspace -scheme Brixie -destination 'platf
 xcodebuild test -workspace Brixie.xcworkspace -scheme BrixieUITests -destination 'platform=iOS Simulator,name=iPhone 15'
 ```
 
-#### Android
+#### Android (Legacy)
 ```bash
 # Run unit tests
 ./gradlew test

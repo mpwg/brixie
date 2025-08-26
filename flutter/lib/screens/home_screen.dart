@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../services/rebrickable_api.dart';
 import '../services/rebrickable_exceptions.dart';
+import 'sets_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,42 +12,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  String _apiStatus = 'Checking API connection...';
 
   final List<Widget> _pages = [
     const HomeTab(),
-    const GalleryTab(),
+    const SetsScreen(),
     const SlideshowTab(),
   ];
-
-  @override
-  void initState() {
-    super.initState();
-    _testApiConnection();
-  }
-
-  Future<void> _testApiConnection() async {
-    try {
-      final apiClient = RebrickableApi.getInstance();
-      final result = await apiClient.getThemes(page: 1, pageSize: 5);
-      
-      setState(() {
-        _apiStatus = 'API Connected - ${result.count} themes available';
-      });
-    } on AuthenticationException {
-      setState(() {
-        _apiStatus = 'API Key Required - Please configure REBRICKABLE_API_KEY';
-      });
-    } on NetworkException {
-      setState(() {
-        _apiStatus = 'Network Error - Check internet connection';
-      });
-    } catch (e) {
-      setState(() {
-        _apiStatus = 'API Error - ${e.toString()}';
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,12 +34,32 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 color: Colors.red,
               ),
-              child: Text(
-                'Brixie',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Icon(
+                    Icons.extension,
+                    color: Colors.white,
+                    size: 32,
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Brixie',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'LEGO Set Browser',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
               ),
             ),
             ListTile(
@@ -83,8 +74,8 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.photo),
-              title: const Text('Gallery'),
+              leading: const Icon(Icons.extension),
+              title: const Text('LEGO Sets'),
               selected: _selectedIndex == 1,
               onTap: () {
                 setState(() {
@@ -95,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: const Icon(Icons.slideshow),
-              title: const Text('Slideshow'),
+              title: const Text('About'),
               selected: _selectedIndex == 2,
               onTap: () {
                 setState(() {
@@ -108,16 +99,23 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: _pages[_selectedIndex],
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: _selectedIndex == 1 ? null : FloatingActionButton(
         onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Replace with your own action'),
-            ),
-          );
+          if (_selectedIndex == 0) {
+            // Navigate to Sets screen
+            setState(() {
+              _selectedIndex = 1;
+            });
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Replace with your own action'),
+              ),
+            );
+          }
         },
-        tooltip: 'Action',
-        child: const Icon(Icons.add),
+        tooltip: _selectedIndex == 0 ? 'Browse Sets' : 'Action',
+        child: Icon(_selectedIndex == 0 ? Icons.search : Icons.add),
       ),
     );
   }
@@ -128,21 +126,98 @@ class HomeTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'This is home Fragment',
-              style: TextStyle(fontSize: 18),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.extension, color: Colors.red[700], size: 32),
+                      const SizedBox(width: 12),
+                      Text(
+                        'Welcome to Brixie',
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Your LEGO set and parts browser powered by Rebrickable.',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SetsScreen(),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.search),
+                    label: const Text('Browse LEGO Sets'),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 16),
-            ApiStatusWidget(),
-          ],
-        ),
+          ),
+          const SizedBox(height: 16),
+          const ApiStatusWidget(),
+          const SizedBox(height: 16),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Features',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 12),
+                  _buildFeatureTile(
+                    Icons.search,
+                    'Search Sets',
+                    'Find LEGO sets by name, theme, or year',
+                  ),
+                  _buildFeatureTile(
+                    Icons.info_outline,
+                    'Set Details',
+                    'View comprehensive information about each set',
+                  ),
+                  _buildFeatureTile(
+                    Icons.extension,
+                    'Parts Database',
+                    'Explore individual LEGO parts and pieces',
+                  ),
+                  _buildFeatureTile(
+                    Icons.palette,
+                    'Colors & Themes',
+                    'Browse by LEGO themes and color variations',
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
+    );
+  }
+
+  Widget _buildFeatureTile(IconData icon, String title, String subtitle) {
+    return ListTile(
+      leading: Icon(icon, color: Colors.red[700]),
+      title: Text(title),
+      subtitle: Text(subtitle),
+      contentPadding: EdgeInsets.zero,
     );
   }
 }
@@ -210,29 +285,72 @@ class _ApiStatusWidgetState extends State<ApiStatusWidget> {
   }
 }
 
-class GalleryTab extends StatelessWidget {
-  const GalleryTab({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'This is gallery Fragment',
-        style: TextStyle(fontSize: 18),
-      ),
-    );
-  }
-}
 
 class SlideshowTab extends StatelessWidget {
   const SlideshowTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'This is slideshow Fragment',
-        style: TextStyle(fontSize: 18),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'About Brixie',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+          const SizedBox(height: 16),
+          const Card(
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Brixie is a Flutter application for browsing LEGO sets and parts using the Rebrickable API.',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    'Features:',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text('• Cross-platform iOS and Android support'),
+                  Text('• Search and browse LEGO sets'),
+                  Text('• View detailed set information'),
+                  Text('• Material Design interface'),
+                  Text('• Offline capability'),
+                  SizedBox(height: 12),
+                  Text(
+                    'Powered by Rebrickable API',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Version Information',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 12),
+                  const Text('Version: 1.0.0'),
+                  const Text('Flutter: Cross-platform'),
+                  const Text('License: AGPL-3.0'),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
