@@ -17,6 +17,18 @@ updates:
       prefix: "swift"
       include: "scope"
     
+  - package-ecosystem: "pub"
+    directory: "/flutter"
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "mpwg"
+    labels:
+      - "dependencies"
+      - "flutter"
+    commit-message:
+      prefix: "flutter"
+      include: "scope"
 
   # Android Dependencies (Gradle)
   - package-ecosystem: "gradle"
