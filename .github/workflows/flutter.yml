@@ -16,8 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: flutter
-    
+        working-directory: ./flutter
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -36,9 +36,6 @@ jobs:
     - name: Analyze project source
       run: flutter analyze
 
-    - name: Generate code
-      run: dart run build_runner build --delete-conflicting-outputs
-
     - name: Run tests
       run: flutter test --coverage
 
@@ -52,7 +49,7 @@ jobs:
     needs: test
     defaults:
       run:
-        working-directory: flutter
+        working-directory: ./flutter
     
     steps:
     - name: Checkout repository
@@ -61,7 +58,6 @@ jobs:
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.24.5'
         channel: 'stable'
 
     - name: Setup Java
@@ -73,11 +69,13 @@ jobs:
     - name: Install dependencies
       run: flutter pub get
 
-    - name: Generate code
-      run: dart run build_runner build --delete-conflicting-outputs
-
     - name: Build APK
       run: flutter build apk --release
+      env:
+        REBRICKABLE_API_KEY: ${{ secrets.API_KEY_REBRICKABLE }}
+
+    - name: Build App Bundle
+      run: flutter build appbundle
       env:
         REBRICKABLE_API_KEY: ${{ secrets.API_KEY_REBRICKABLE }}
 
@@ -92,7 +90,7 @@ jobs:
     needs: test
     defaults:
       run:
-        working-directory: flutter
+        working-directory: ./flutter
     
     steps:
     - name: Checkout repository
@@ -101,14 +99,10 @@ jobs:
     - name: Setup Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.24.5'
         channel: 'stable'
 
     - name: Install dependencies
       run: flutter pub get
-
-    - name: Generate code
-      run: dart run build_runner build --delete-conflicting-outputs
 
     - name: Build iOS (no signing)
       run: flutter build ios --release --no-codesign
