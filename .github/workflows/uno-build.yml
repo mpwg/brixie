@@ -24,43 +24,20 @@ jobs:
     name: Smoke Test (Debug Build of Brixie)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
       - name: Install Dependencies
         timeout-minutes: ${{ fromJSON(env.STEP_TIMEOUT_MINUTES) }}
         uses: "./.github/steps/install_dependencies"
 
       # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v2
+      - name: Restore dependencies
+        run: dotnet restore
 
-      - name: Build Brixie (Debug)
-        shell: pwsh
-        run: msbuild ./Brixie/Brixie.csproj /r
-
-  unit_test:
-    defaults:
-      run:
-        working-directory: ./uno
-    name: Unit Tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Install Dependencies
-        timeout-minutes: ${{ fromJSON(env.STEP_TIMEOUT_MINUTES) }}
-        uses: "./.github/steps/install_dependencies"
-
-      # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v2
-
-      - name: Build Brixie.Tests (Release)
-        shell: pwsh
-        run: msbuild ./Brixie.Tests/Brixie.Tests.csproj /p:Configuration=Release /p:OverrideTargetFramework=net9.0 /r
+      - name: Build
+        run: dotnet build --no-restore
 
       - name: Run Unit Tests
         shell: pwsh
-        run: dotnet test ./Brixie.Tests/Brixie.Tests.csproj --no-build -c Release --logger GitHubActions --blame-crash --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        run: dotnet test --no-build --verbosity normal --logger GitHubActions --blame-crash --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        

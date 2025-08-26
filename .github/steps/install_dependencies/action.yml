@@ -10,25 +10,36 @@ inputs:
     description: 'Installs and sets the .NET SDK Version'
     required: false
     default: '9.0.x'
+  java-version:
+    description: 'Installs and sets the Java SDK Version'
+    required: false
+    default: '11'
 
 runs:
   using: "composite"
   steps:
     # Install .NET
     - name: Setup .NET ${{ inputs.dotnet-version }}
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '${{ inputs.dotnet-version }}'
-    - name: Install MS OpenJDK
+    
+    # Install Java
+    - name: Install MS OpenJDK ${{ inputs.java-version }}
       uses: actions/setup-java@v4
       with:
         distribution: 'microsoft'
-        java-version: '11'  
-    # Run Uno.Check
+        java-version: '${{ inputs.java-version }}'
+
+    # Install Uno.Check
     - name: Install ${{ inputs.target-platform }} Workloads
       shell: pwsh
       run: |
         dotnet tool install -g uno.check
+    # Run Uno.Check
+    - name: Run Uno.Check
+      shell: pwsh
+      run: |
         ("${{ inputs.target-platform }} ".Split(' ') | ForEach-Object {
           $target = $_.Replace("_win", "").Replace("_macos", "")
           if (![string]::IsNullOrEmpty($target)) {
