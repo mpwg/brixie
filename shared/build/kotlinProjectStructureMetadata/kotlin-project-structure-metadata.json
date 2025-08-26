@@ -32,7 +32,9 @@
       {
         "name": "commonMain",
         "dependsOn": [],
-        "moduleDependency": [],
+        "moduleDependency": [
+          "org.jetbrains.kotlin:kotlin-stdlib"
+        ],
         "binaryLayout": "klib"
       }
     ]

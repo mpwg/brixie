@@ -1,9 +1,9 @@
 <libraries>
   <library
       name=":@@:shared::debug"
-      jars="/home/runner/.gradle/caches/9.0.0/transforms/ce43232871996034990b5c35aef86420/transformed/out/jars/classes.jar:/home/runner/.gradle/caches/9.0.0/transforms/ce43232871996034990b5c35aef86420/transformed/out/jars/libs/R.jar"
+      jars="/home/runner/.gradle/caches/9.0.0/transforms/d06d4c69c9066423544295a33d6c3695/transformed/out/jars/classes.jar:/home/runner/.gradle/caches/9.0.0/transforms/d06d4c69c9066423544295a33d6c3695/transformed/out/jars/libs/R.jar"
       resolved="Brixie:shared:unspecified"
-      folder="/home/runner/.gradle/caches/9.0.0/transforms/ce43232871996034990b5c35aef86420/transformed/out"
+      folder="/home/runner/.gradle/caches/9.0.0/transforms/d06d4c69c9066423544295a33d6c3695/transformed/out"
       manifest="AndroidManifest.xml"
       resFolder="res"
       assetsFolder="assets"

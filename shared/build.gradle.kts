@@ -11,6 +11,9 @@ kotlin {
         }
     }
     
+    // iOS targets commented out due to Gradle compatibility issues
+    // Can be enabled once compatible Gradle/Kotlin versions are available
+    /*
     listOf(
         iosX64(),
         iosArm64(),
@@ -21,6 +24,7 @@ kotlin {
             isStatic = true
         }
     }
+    */
 
     sourceSets {
         val commonMain by getting {
@@ -45,6 +49,7 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.android)
             }
         }
+        /*
         val iosMain by creating {
             dependsOn(commonMain)
             dependencies {
@@ -60,6 +65,7 @@ kotlin {
         val iosSimulatorArm64Main by getting {
             dependsOn(iosMain)
         }
+        */
     }
 }
 
