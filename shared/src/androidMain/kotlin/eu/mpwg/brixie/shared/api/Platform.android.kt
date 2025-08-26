@@ -1,7 +1,5 @@
 package eu.mpwg.brixie.shared.api
 
-import android.util.Log
-import eu.mpwg.android.BuildConfig
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.android.Android
 
@@ -14,19 +12,21 @@ actual fun createHttpClientEngine(): HttpClientEngine = Android.create()
  * Android-specific logging implementation
  */
 actual fun platformLog(tag: String, message: String) {
-    Log.v(tag, message)
+    android.util.Log.v(tag, message)
 }
 
 /**
  * Android-specific API key retrieval
  */
 actual fun getApiKey(): String {
-    return BuildConfig.REBRICKABLE_API_KEY
+    // This will be set by the Android app module via system properties
+    return System.getProperty("rebrickable.api.key") ?: "your_api_key_here"
 }
 
 /**
  * Android-specific debug flag
  */
 actual fun isDebugMode(): Boolean {
-    return BuildConfig.DEBUG
+    // This will be set by the Android app module via system properties
+    return System.getProperty("rebrickable.debug.mode")?.toBoolean() ?: false
 }

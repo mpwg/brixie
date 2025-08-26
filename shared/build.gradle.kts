@@ -11,8 +11,6 @@ kotlin {
         }
     }
     
-    // Comment out iOS targets for now to focus on getting Android working first
-    /*
     listOf(
         iosX64(),
         iosArm64(),
@@ -23,7 +21,6 @@ kotlin {
             isStatic = true
         }
     }
-    */
 
     sourceSets {
         val commonMain by getting {
@@ -48,7 +45,6 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.android)
             }
         }
-        /*
         val iosMain by creating {
             dependsOn(commonMain)
             dependencies {
@@ -64,7 +60,6 @@ kotlin {
         val iosSimulatorArm64Main by getting {
             dependsOn(iosMain)
         }
-        */
     }
 }
 
