@@ -19,7 +19,11 @@ runs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '${{ inputs.dotnet-version }}'
-    
+    - name: Install MS OpenJDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'microsoft'
+        java-version: '11'  
     # Run Uno.Check
     - name: Install ${{ inputs.target-platform }} Workloads
       shell: pwsh
