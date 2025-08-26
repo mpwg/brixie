@@ -1,0 +1,43 @@
+permissions:
+  contents: read
+name: Uno-CI
+
+on:
+  push:
+    branches:
+      - main
+      - release/**
+
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+      - release/**
+env:
+  STEP_TIMEOUT_MINUTES: 60
+
+jobs:
+  smoke_test:
+    defaults:
+      run:
+        working-directory: ./uno
+    name: Smoke Test (Debug Build of Brixie)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install Dependencies
+        timeout-minutes: ${{ fromJSON(env.STEP_TIMEOUT_MINUTES) }}
+        uses: "./.github/steps/install_dependencies"
+
+      # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Run Unit Tests
+        shell: pwsh
+        run: dotnet test --no-build --verbosity normal --logger GitHubActions --blame-crash --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+        
