@@ -1,0 +1,22 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:8080",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "Brixie (Desktop)": {
+      "commandName": "Project",
+      "compatibleTargetFramework": "desktop"
+    },
+    "Brixie (Desktop WSL2)": {
+      "commandName": "WSL2",
+      "commandLineArgs": "{ProjectDir}/bin/Debug/net9.0-desktop/Brixie.dll",
+      "distributionName": "",
+      "compatibleTargetFramework": "desktop"
+    }
+  }
+}

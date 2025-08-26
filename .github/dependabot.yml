@@ -17,6 +17,18 @@ updates:
       prefix: "swift"
       include: "scope"
     
+  - package-ecosystem: "pub"
+    directory: "/flutter"
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "mpwg"
+    labels:
+      - "dependencies"
+      - "flutter"
+    commit-message:
+      prefix: "flutter"
+      include: "scope"
 
   # Android Dependencies (Gradle)
   - package-ecosystem: "gradle"
@@ -63,7 +75,15 @@ updates:
           - "com.android.application*"
           - "com.google.devtools.ksp*"
 
-  
+  - package-ecosystem: nuget
+    directory: "/uno"
+    schedule:
+      interval: weekly
+      time: "10:00"
+    open-pull-requests-limit: 10
+    labels:
+    - kind/dependency
+    - do-not-merge/work-in-progress  
 
   # GitHub Actions
   - package-ecosystem: "github-actions"
