@@ -10,10 +10,6 @@ inputs:
     description: 'Installs and sets the .NET SDK Version'
     required: false
     default: '9.0.x'
-  sdkVersion:
-    description: 'The version of the Windows Sdk'
-    required: false
-    default: '19041'
 
 runs:
   using: "composite"
@@ -23,13 +19,7 @@ runs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '${{ inputs.dotnet-version }}'
-
-    # Install Windows SDK
-    - name: Install Windows SDK ${{ inputs.sdkVersion }}
-      shell: pwsh
-      if: ${{ runner.os == 'Windows' }}
-      run: .\.github\Install-WindowsSdkISO.ps1 ${{ inputs.sdkVersion }}
-
+    
     # Run Uno.Check
     - name: Install ${{ inputs.target-platform }} Workloads
       shell: pwsh

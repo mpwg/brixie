@@ -22,11 +22,9 @@ jobs:
       run:
         working-directory: ./uno
     name: Smoke Test (Debug Build of Brixie)
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Install Dependencies
         timeout-minutes: ${{ fromJSON(env.STEP_TIMEOUT_MINUTES) }}
@@ -45,7 +43,7 @@ jobs:
       run:
         working-directory: ./uno
     name: Unit Tests
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
